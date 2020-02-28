@@ -1,0 +1,18 @@
+.header-content{
+    margin-top: 80px;
+}
+.btn-content{
+    margin: 30px 0px 0px 80px;
+    padding: 2px;
+}
+.form-content{
+    margin-top: 90px;
+    align-items: center;
+    margin-left: 25%;
+    display:none;
+}
+.viewUser li{
+    list-style-type: none;
+    border: gray;
+    background-color: gray;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>interviewer-register</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-with, initial-scale=1 shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="css/dashboad.css">
+    </head>
+    <body>
+        <div class="header-log">
+                <div class="container-fluid">
+                    <div class="row align-items-center header-content">
+                        <div class="col-12">
+                            <h2 style="text-align: center;">Interviewer Register</h2>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center btn-content">
+                        <div class="col-2 btn-inline">
+                            <button class="btn btn-primary" id="addbtn">Add User</button>
+
+                        </div>
+                        <div class="col-2 btn-inline">
+                            <button class="btn btn-primary" id="viewbtn">View Users</button>
+                        
+                        </div>
+                    </div>
+                            
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-6 form-content" id="Addviwer">
+                                <form class="" method="POST" action="">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="First Name" id="firstname" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Last Name" id="lastname" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="time" placeholder="Arrival time" id="ariver_time" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="time" placeholder="Exit Time" id="exit_time" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group  " data-provide="datepicker">
+                                        <input type="date" value="date" id="date_of_interview" class="form-control" required>
+                                    </div>
+                                    <div class="">
+                                        <button type="submit" class="btn btn-success " id="add_user">Add Users</button>
+                                    </div>
+
+                                </form>
+                                <div class="row">
+                                    <div class="col-6 form-content">
+                                        <ul class="viewUser" id="viewer"></ul>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                    
+                    
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+        <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/mainajax.js"></script>
+    </body>
+</html>
