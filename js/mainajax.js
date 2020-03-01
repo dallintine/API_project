@@ -6,7 +6,21 @@ $(function () {
     var $exit_time = $('#exit_time');
     var $date_of_interview = $('#date_of_interview');
     var $viewer = $('$viewer');
-    $('add_user').on('click', function () {
+
+    var viewTemplete = "" + 
+    "<li>" +
+    "<strong>firstname:</strong> {{firstname}}</li>" + 
+    "<li><strong>lastname:</strong> {{lastname}}</li>" +
+    "<li><strong>ariver_time:</strong> {{ariver_time}}</li>" +
+    "<li><strong>exit_time:</strong> {{exit_time}}</li>" +
+    "<li><strong>date_of_interview:</strong> {{date_of_interview}}</li>"+
+    "</li>";
+
+    function addviewers(datas){
+        $viewer.append(Mustache.render(viewTemplete, datas));
+    }
+    
+    $('#add_user').on('click', function () {
         var vieweradd = {
             firstname: $firstname.val(),
             lastname: $lastname.val(),
@@ -15,7 +29,7 @@ $(function () {
             date_of_interview: $date_of_interview.val(),
         };
         $.ajax({
-            type: 'POST',
+            method: 'POST',
             url: 'https://empl-dev.site/api/interview/addWork',
             data: vieweradd,
             success: function (newAdd) {
@@ -27,7 +41,8 @@ $(function () {
         });
     });
 
-        $('viewbtn').on('click', function () {
+        $('#viewbtn').on('click', function () {
+
             var viewer_add = {
                 firstname: $firstname.val(),
                 lastname: $lastname.val(),
@@ -38,10 +53,9 @@ $(function () {
         $.ajax({
             type: 'GET',
             url: 'https://empl-dev.site/api/interview/fetchWork',
-            success: function(viewer){
+            success: function (viewer){
                 $.each(viewer, function(i, vieweradd){
-                    $viewer.append('<li>firstname: ' + viewer.firstname +', lastname:'+ viewer.lastname +', ariver_time: '+ viewer.ariver_time +', exit_time: '+ viewer.exit_time +', date_of_interview: '+ viewer.date_of_interview +'</li>');
-
+                    addviewers(datas);
                 });
             },
             error: function(){
@@ -49,5 +63,29 @@ $(function () {
 
             }    
         });
+
+            $('#viewbtn').on('click', function () {
+
+                var viewer_add = {
+                    firstname: $firstname.val(),
+                    lastname: $lastname.val(),
+                    ariver_time: $ariver_time.val(),
+                    exit_time: $exit_time.val(),
+                    date_of_interview: $date_of_interview.val(),
+                };
+                $.ajax({
+                    type: 'GET',
+                    url: 'https://empl-dev.site/api/interview/editWork',
+                    success: function (viewer) {
+                        $.each(viewer, function (i, vieweradd) {
+                            addviewers(datas);
+                        });
+                    },
+                    error: function () {
+                        alert('error getting viewer');
+
+                    }
+                });
+            });
     });
 });

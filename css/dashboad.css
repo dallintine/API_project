@@ -11,6 +11,11 @@
     margin-left: 25%;
     display:none;
 }
+.form-contents{
+    margin-top: 90px;
+    align-items: center;
+    margin-left: 25%;
+}
 .viewUser li{
     list-style-type: none;
     border: gray;

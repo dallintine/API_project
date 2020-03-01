@@ -14,17 +14,18 @@
                 <div class="container-fluid">
                     <div class="row align-items-center header-content">
                         <div class="col-12">
-                            <h2 style="text-align: center;">Interviewer Register</h2>
+                            <h2 style="text-align: center;">Interviewer's Register</h2>
                         </div>
                     </div>
                     <div class="row justify-content-center btn-content">
                         <div class="col-2 btn-inline">
                             <button class="btn btn-primary" id="addbtn">Add User</button>
-
                         </div>
                         <div class="col-2 btn-inline">
                             <button class="btn btn-primary" id="viewbtn">View Users</button>
-                        
+                        </div>
+                        <div class="col-2 btn-inline">
+                            <button class="btn btn-primary" id="delebtn">Delete Users</button>
                         </div>
                     </div>
                             
@@ -39,33 +40,58 @@
                                         <input type="text" placeholder="Last Name" id="lastname" class="form-control" required>
                                     </div>
 
-                                    <div class="form-group">
-                                        <input type="time" placeholder="Arrival time" id="ariver_time" class="form-control" required>
+                                    <div class="form-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-sm">Arrival Time</span>
+                                            <input type="time" placeholder="Arrival time" id="ariver_time" class="form-control" aria-describedby="inputGroup-sizing-sm" required>
+                                        </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <input type="time" placeholder="Exit Time" id="exit_time" class="form-control" required>
+                                    <div class="form-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-sm">Exit Time</span>
+                                            <input type="time" placeholder="Exit Time" id="exit_time" class="form-control"
+                                                aria-describedby="inputGroup-sizing-sm" required>
+                                        </div>
                                     </div>
 
-                                    <div class="form-group  " data-provide="datepicker">
-                                        <input type="date" value="date" id="date_of_interview" class="form-control" required>
-                                    </div>
+                                    <div class="form-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-sm">date of interview</span>
+                                            <input type="date" placeholder="date of interview" id="date_of_interview" class="form-control"
+                                                aria-describedby="inputGroup-sizing-sm" required>
+                                        </div>
+                                    </div>                                    
                                     <div class="">
                                         <button type="submit" class="btn btn-success " id="add_user">Add Users</button>
                                     </div>
 
                                 </form>
+                                </div>
+                            </div>        
                                 <div class="row">
-                                    <div class="col-6 form-content">
+                                    <div class="col-6 form-contents" id="">
                                         <ul class="viewUser" id="viewer"></ul>
-
                                     </div>
                                 </div>
 
-                            </div>
-                    
-                    
-                        </div>
+                                <div class="row">
+                                    <div class="col-6 form-content" id="addDele">
+                                        <div class="viewUser" id="viewer">
+                                            <form action="index.html"method="POST">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Enter number row to delete" id="delbtn" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button type="button" id="del" class="btn btn-warning">Delete User</button>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                
+                                    </div>
+                                </div>
+
                     </div>
                 </div>
         </div>
@@ -75,5 +101,6 @@
         <script src="node_modules/jquery/dist/jquery.js"></script>
         <script src="js/main.js"></script>
         <script src="js/mainajax.js"></script>
+        <script src="mustache/mustache.js"></script>
     </body>
 </html>
