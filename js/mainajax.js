@@ -29,7 +29,7 @@ $(function () {
             date_of_interview: $date_of_interview.val(),
         };
         $.ajax({
-            method: 'POST',
+            type: 'POST',
             url: 'https://empl-dev.site/api/interview/addWork',
             data: vieweradd,
             success: function (newAdd) {
